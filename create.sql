@@ -1,0 +1,21 @@
+CREATE DATABASE XYZ;
+
+CREATE TABLE Departamentos(
+id_depto INT PRIMARY KEY NOT NULL,
+nome VARCHAR(30),
+lider VARCHAR(30)
+);
+
+CREATE TABLE Funcionarios(
+id_func INT PRIMARY KEY NOT NULL,
+nome VARCHAR(30) NOT NULL,
+cargo VARCHAR(30) NOT NULL,
+salario DOUBLE NOT NULL,
+dt_admissao DATE NOT NULL
+);
+
+CREATE TABLE Cargo(
+id_cargo INT PRIMARY KEY NOT NULL,
+nome VARCHAR(30) NOT NULL
+);
+
