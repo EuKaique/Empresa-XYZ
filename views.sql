@@ -34,3 +34,11 @@ dt_admissao AS Admissão
 FROM Funcionarios 
 WHERE dt_admissao = (SELECT MAX(dt_admissao)FROM Funcionarios);
 
+-- ESSA VIEW RETORNA OS FUNCIONÁRIOS COM MENOR SALÁRIO
+CREATE VIEW menorSalario AS
+SELECT id_func AS Id,
+nome AS Funcionário,
+salario AS Salário
+FROM Funcionarios
+WHERE salario = (SELECT MIN(salario)FROM Funcionarios);
+
