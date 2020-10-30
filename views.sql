@@ -24,3 +24,13 @@ dt_admissao AS Admissão
 FROM Funcionarios 
 WHERE dt_admissao BETWEEN '2010-06-11' AND '2011-04-15'
 ORDER BY dt_admissao;
+
+-- ESSA VIEW RETORNA O ULTIMO FUNCIONÁRIO CONTRATADO
+CREATE VIEW ultimoFunc AS
+SELECT id_func AS Id,
+nome AS Funcionário,
+salario AS Salario,
+dt_admissao AS Admissão
+FROM Funcionarios 
+WHERE dt_admissao = (SELECT MAX(dt_admissao)FROM Funcionarios);
+
