@@ -15,4 +15,12 @@ f.nome AS Funcionario
 FROM cargo c, funcionarios f
 WHERE f.id_cargo = c.id_cargo;
 
-
+-- ESSA VIEW RETORNA OS PRIMEIROS FUNCIONÁRIOS DA EMPRESA
+CREATE VIEW primeirosFunc AS
+SELECT id_func AS Id,
+nome AS Funcionário,
+salario AS Salario,
+dt_admissao AS Admissão
+FROM Funcionarios 
+WHERE dt_admissao BETWEEN '2010-06-11' AND '2011-04-15'
+ORDER BY dt_admissao;
