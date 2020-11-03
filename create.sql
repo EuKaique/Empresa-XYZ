@@ -1,5 +1,7 @@
+-- CRIAÇÃO DO BANCO XYZ
 CREATE DATABASE XYZ;
 
+-- CRIAÇÃO DA TABELA Departamentos
 CREATE TABLE Departamentos(
 id_depto INT PRIMARY KEY NOT NULL,
 id_func INT NOT NULL,
@@ -8,6 +10,7 @@ lider VARCHAR(30),
 FOREIGN KEY(id_func) REFERENCES Funcionarios(id_func)  
 );
 
+-- CRIAÇÃO DA TABELA Funcionarios
 CREATE TABLE Funcionarios(
 id_func INT PRIMARY KEY NOT NULL,
 id_depto INT NOT NULL,
@@ -20,6 +23,7 @@ FOREIGN KEY(id_depto) REFERENCES Departamentos(id_depto),
 FOREIGN KEY(id_cargo) REFERENCES Cargo(id_cargo)   
 );
 
+-- CRIAÇÃO DA TABELA Cargo
 CREATE TABLE Cargo(
 id_cargo INT PRIMARY KEY NOT NULL,
 id_func INT NOT NULL,
