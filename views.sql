@@ -1,5 +1,5 @@
 -- ESSA VIEW RETORNA TODOS OS FUNCIONÁRIOS E SEUS DEPARTAMENTOS
-CREATE VIEW deptoFunc AS
+CREATE VIEW funcDepto AS
 SELECT d.id_depto AS Id_Departamento,
 d.nome AS Departamento,
 f.nome AS Funcionario
@@ -54,7 +54,26 @@ WHERE salario = (SELECT MAX(salario)FROM Funcionarios);
 CREATE VIEW deptoRH AS
 SELECT d.id_depto,
 d.nome AS Departamento,
+lider,
 f.id_func,
-f.nome AS Funcionário
-FROM Departamentos d, Funcionarios f
-WHERE d.id_depto = f.id_depto AND d.nome = 'RH';
+f.nome AS Funcionário,
+c.nome AS Cargo
+FROM Departamentos d, Funcionarios f, Cargo c
+WHERE d.id_depto = f.id_depto
+AND c.id_depto = d.id_depto 
+AND f.id_cargo = c.id_cargo 
+AND d.nome = 'RH';
+
+-- ESSA VIEW RETORNA OS FUNCIONÁRIOS QUE TRABALHAM NO DEPARTAMENTO ADMINISTRATIVO
+CREATE VIEW deptoADMIN AS
+SELECT d.id_depto,
+d.nome AS Departamento,
+lider,
+f.id_func,
+f.nome AS Funcionário,
+c.nome AS Cargo
+FROM Departamentos d, Funcionarios f, Cargo c
+WHERE d.id_depto = f.id_depto 
+AND c.id_depto = d.id_depto 
+AND f.id_cargo = c.id_cargo 
+AND d.nome = 'Administrativo';
