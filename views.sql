@@ -49,3 +49,12 @@ nome AS Funcionário,
 salario AS Salário
 FROM Funcionarios
 WHERE salario = (SELECT MAX(salario)FROM Funcionarios);
+
+-- ESSA VIEW RETORNA OS FUNCIONÁRIOS QUE TRABALHAM NO DEPARTAMENTO DE RH
+CREATE VIEW deptoRH AS
+SELECT d.id_depto,
+d.nome AS Departamento,
+f.id_func,
+f.nome AS Funcionário
+FROM Departamentos d, Funcionarios f
+WHERE d.id_depto = f.id_depto AND d.nome = 'RH';
