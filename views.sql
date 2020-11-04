@@ -42,3 +42,10 @@ salario AS Salário
 FROM Funcionarios
 WHERE salario = (SELECT MIN(salario)FROM Funcionarios);
 
+-- ESSA VIEW RETORNA O FUNCIONÁRIO COM MAIOR SALÁRIO 
+CREATE VIEW maiorSalario AS
+SELECT id_func AS Id,
+nome AS Funcionário,
+salario AS Salário
+FROM Funcionarios
+WHERE salario = (SELECT MAX(salario)FROM Funcionarios);
