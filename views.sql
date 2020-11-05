@@ -105,3 +105,17 @@ WHERE d.id_depto = f.id_depto
 AND c.id_depto = d.id_depto 
 AND f.id_cargo = c.id_cargo 
 AND d.nome = 'TI';
+
+-- ESSA VIEW RETORNA OS FUNCIONÁRIOS QUE TRABALHAM NO DEPARTAMENTO DE CONTABILIDADE
+CREATE VIEW deptoCONT AS
+SELECT d.id_depto,
+d.nome AS Departamento,
+lider,
+f.id_func,
+f.nome AS Funcionário,
+c.nome AS Cargo
+FROM Departamentos d, Funcionarios f, Cargo c
+WHERE d.id_depto = f.id_depto 
+AND c.id_depto = d.id_depto 
+AND f.id_cargo = c.id_cargo 
+AND d.nome = 'Contabilidade';
